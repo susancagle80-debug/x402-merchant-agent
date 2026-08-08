@@ -1,0 +1,38 @@
+{
+  "name": "x402-merchant-agent",
+  "version": "1.0.0",
+  "description": "x402 payment gateway merchant agent",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "@alchemy/wallet-apis": "^5.0.6",
+    "@hono/node-server": "^2.0.10",
+    "@privy-io/node": "^0.26.0",
+    "@upstash/redis": "^1.38.0",
+    "@x402/core": "^2.19.0",
+    "@x402/evm": "^2.19.0",
+    "@x402/express": "^2.19.0",
+    "@x402/fetch": "^2.19.0",
+    "@x402/hono": "^2.19.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "hono": "^4.12.31",
+    "semver": "^7.8.5",
+    "siwe": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.12.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

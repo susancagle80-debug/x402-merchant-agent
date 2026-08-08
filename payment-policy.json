@@ -1,0 +1,9 @@
+{
+  "perCallCapUsdc": 0.05,
+  "dailyCapUsdc": 1.00,
+  "allowedNetworks": ["eip155:84532"],
+  "allowedProviders": [
+    "nano.blockrun.ai"
+  ],
+  "logPath": "./payment-log.jsonl"
+}

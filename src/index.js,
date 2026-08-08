@@ -1,0 +1,52 @@
+import express from 'express';
+import { paymentMiddleware } from '@x402/express';
+import { x402HTTPResourceServer } from '@x402/core/http';
+import { HTTPFacilitatorClient } from '@x402/core/server';
+import { ExactEvmScheme, UptoEvmScheme } from '@x402/evm';
+
+const app = express();
+
+const MERCHANT_ADDRESS = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'; 
+
+const facilitatorClient = new HTTPFacilitatorClient({
+    url: 'https://x402.org/facilitator'
+});
+
+const x402Server = new x402HTTPResourceServer({
+    facilitatorClient,
+    schemes: [
+        {
+            network: 'eip155:84532',
+            handler: new ExactEvmScheme(MERCHANT_ADDRESS)
+        },
+        {
+            network: 'eip155:84532',
+            handler: new UptoEvmScheme(MERCHANT_ADDRESS)
+        }
+    ]
+});
+
+x402Server.addRoute({
+    path: '/api/premium-data',
+    method: 'GET',
+    scheme: 'exact',
+    network: 'eip155:84532',
+    amount: '100000000000000'
+});
+
+app.use(paymentMiddleware(x402Server));
+
+app.get('/api/premium-data', (req, res) => {
+    res.json({
+        success: true,
+        message: "Payment successfully verified!",
+        data: { 
+            secret: "Welcome to the automated Web3 economy." 
+        }
+    });
+});
+
+app.listen(3000, () => {
+    console.log('x402 Merchant Agent running on port 3000');
+    console.log('Protected endpoint: http://localhost:3000/api/premium-data');
+});
