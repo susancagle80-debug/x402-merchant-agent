@@ -1,15 +1,16 @@
 version: "1"
 projects:
-- name: My project
+- name: x402-merchant-agent
   environments:
   - name: Production
     services:
     - type: web
       name: merchant-agent
       runtime: docker
-      repo: https://github.com/susancagle80-debug/x402-merchant-agent
+      repo: https://github.com/gamezcagle95-dev/x402-merchant-agent
       plan: free
       region: oregon
       dockerContext: .
       dockerfilePath: ./Dockerfile
       autoDeploy: true
+      envVars: []
