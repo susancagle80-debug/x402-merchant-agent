@@ -1,6 +1,14 @@
 .env
-.env
+.env.local
+.env*.local
 node_modules/
-.env
 dist/
 *.key
+*.pem
+vault/
+.env
+.env.local
+*.key
+*.pem
+vault/
+merchant_ledger.db
