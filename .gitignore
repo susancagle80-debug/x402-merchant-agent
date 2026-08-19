@@ -12,3 +12,10 @@ vault/
 *.pem
 vault/
 merchant_ledger.db
+.env
+
+.env
+.env.*
+*.key
+secrets/
+.env
