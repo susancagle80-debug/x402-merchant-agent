@@ -28,7 +28,7 @@ contract AccessTiers is ERC1155, Ownable {
     }
 
     // Delegation: Cold wallet authorizes a hot wallet
-    function setDelegate(address hotWallet, bool isAuthorized) public {
+    function setDelegate(address hotWallet, bool authorized) public {
         delegates[msg.sender][hotWallet] = isAuthorized;
     }
 
